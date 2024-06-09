@@ -2,9 +2,9 @@ import numpy as np
 import matplotlib.pyplot as plt
 from scipy.optimize import curve_fit
 
-folderC = r"D:/Quest_for_SRO_gap/C/"
-folderDRHA = r"archive/RHA/"
-folderDRHAnS = r"archive/RHAnS/"
+folderC = r"data/"
+folderDRHA = r"data/"
+folderDRHAnS = r"data/"
 
 choices = ["B1g", "B1g_intra"]
 number = "100"

@@ -3,14 +3,13 @@ from scipy.optimize import fminbound
 from scipy import interpolate
 
 import gap_pseudo as ps
-
 save = False
 save_path = False
 
 kb = 8.617333262145e-2  # value in meV
 
 # loading BCS T dependence
-data_BCS = np.loadtxt("BCS_gap_norm_1000.dat")
+data_BCS = np.loadtxt("data/BCS_gap_norm_1000.dat")
 BCS_T = interpolate.interp1d(
     data_BCS[0], data_BCS[1], fill_value="extrapolate"
 )
@@ -209,12 +208,12 @@ gap_file = np.reshape(gap_file, (3*(4*n_angles + 600), 6))
 if save:
     print("we saved")
     np.savetxt(
-        f"archive/{model_save}/{gap_save_name}/GT_{4*n_angles}", gap_file
+        f"gap_theta_save/{model_save}/{gap_save_name}/GT_{4*n_angles}", gap_file
     )
 if save_path:
     path_file = np.concatenate((path_save, path_save2), axis=0)
     np.savetxt(
-        f"archive/{model_save}/{gap_save_name}/path", path_file
+        f"gap_theta_save/{model_save}/{gap_save_name}/path", path_file
     )
     print("path saved")
 import matplotlib.pyplot as plt
